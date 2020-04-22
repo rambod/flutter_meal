@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:meal/models/meal.dart';
 import 'package:meal/screens/categories_screen.dart';
 import 'package:meal/screens/favorite_screen.dart';
 import 'package:meal/widgets/main_drawer.dart';
 
 class TabsScren extends StatefulWidget {
+  final List<Meal> favoriteMeals;
+
+  TabsScren(this.favoriteMeals);
+
   @override
   _TabsScrenState createState() => _TabsScrenState();
 }
 
 class _TabsScrenState extends State<TabsScren> {
-  final List<Widget> _pages = [
-    CategoriesScreen(),
-    FavoriteScreen(),
-  ];
+  List _pages;
 
   int _selectedPageIndex = 0;
 
-  void _selectPage(int index){
+  @override
+  void initState() {
+    _pages = [
+      CategoriesScreen(),
+      FavoriteScreen(widget.favoriteMeals),
+    ];
+  }
+
+  void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
     });
@@ -25,13 +35,11 @@ class _TabsScrenState extends State<TabsScren> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(
-        'Meal Ramai'
-      ),),
+      appBar: AppBar(
+        title: Text('Meal Ramai'),
+      ),
       drawer: MainDrawer(),
-
       body: _pages[_selectedPageIndex],
-
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         selectedItemColor: Theme.of(context).accentColor,
@@ -40,13 +48,13 @@ class _TabsScrenState extends State<TabsScren> {
         type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-              icon: Icon(Icons.category), title: Text('Categories')),
-
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: Icon(Icons.category),
+              title: Text('Categories')),
           BottomNavigationBarItem(
               backgroundColor: Colors.red,
-
-              icon: Icon(Icons.favorite), title: Text('Favorites')),
+              icon: Icon(Icons.favorite),
+              title: Text('Favorites')),
         ],
       ),
     );
