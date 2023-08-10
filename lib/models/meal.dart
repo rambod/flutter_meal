@@ -22,17 +22,17 @@ class Meal {
   final bool isLactoseFree;
 
   const Meal(
-      {this.id,
-      this.categories,
-      this.title,
-      this.imageUrl,
-      this.ingredients,
-      this.steps,
-      this.duration,
-      this.complexity,
-      this.affordability,
-      this.isGlutenFree,
-      this.isVegan,
-      this.isVegetarian,
-      this.isLactoseFree});
+      {required this.id,
+      required this.categories,
+      required this.title,
+      required this.imageUrl,
+      required this.ingredients,
+      required this.steps,
+      required this.duration,
+      required this.complexity,
+      required this.affordability,
+      required this.isGlutenFree,
+      required this.isVegan,
+      required this.isVegetarian,
+      required this.isLactoseFree});
 }

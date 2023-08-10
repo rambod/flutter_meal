@@ -34,7 +34,7 @@ class MainDrawer extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(30),
             alignment: Alignment.centerLeft,
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).hintColor,
             child: Text(
               'Check This out',
               style: TextStyle(

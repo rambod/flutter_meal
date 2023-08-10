@@ -33,16 +33,16 @@ class _MyAppState extends State<MyApp> {
       _filters = filterData;
 
       _availableMeals = DUMMY_MEALS.where((element) {
-        if (_filters['gluten'] && !element.isGlutenFree) {
+        if (_filters['gluten']! && !element.isGlutenFree) {
           return false;
         }
-        if (_filters['lactose'] && !element.isLactoseFree) {
+        if (_filters['lactose']! && !element.isLactoseFree) {
           return false;
         }
-        if (_filters['vegan'] && !element.isVegan) {
+        if (_filters['vegan']! && !element.isVegan) {
           return false;
         }
-        if (_filters['vegetarian'] && !element.isVegetarian) {
+        if (_filters['vegetarian']! && !element.isVegetarian) {
           return false;
         }
         return true;
@@ -76,17 +76,17 @@ class _MyAppState extends State<MyApp> {
 
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        accentColor: Colors.black,
+        hintColor: Colors.black,
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-            title: TextStyle(
+            subtitle1: TextStyle(
                 fontSize: 20,
                 fontFamily: 'Raleway',
                 fontWeight: FontWeight.bold),
-            body1: TextStyle(
+            bodyText1: TextStyle(
               fontFamily: 'Raleway',
             ),
-            body2: TextStyle(
+            bodyText2: TextStyle(
               fontFamily: 'Raleway',
             )),
         visualDensity: VisualDensity.adaptivePlatformDensity,

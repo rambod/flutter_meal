@@ -14,7 +14,7 @@ class TabsScren extends StatefulWidget {
 }
 
 class _TabsScrenState extends State<TabsScren> {
-  List _pages;
+  late List _pages;
 
   int _selectedPageIndex = 0;
 
@@ -42,7 +42,7 @@ class _TabsScrenState extends State<TabsScren> {
       body: _pages[_selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
-        selectedItemColor: Theme.of(context).accentColor,
+        selectedItemColor: Theme.of(context).hintColor,
         currentIndex: _selectedPageIndex,
         backgroundColor: Theme.of(context).primaryColor,
         type: BottomNavigationBarType.shifting,
@@ -50,11 +50,13 @@ class _TabsScrenState extends State<TabsScren> {
           BottomNavigationBarItem(
               backgroundColor: Theme.of(context).primaryColor,
               icon: Icon(Icons.category),
-              title: Text('Categories')),
+              label: 'Categories'
+      ),
           BottomNavigationBarItem(
               backgroundColor: Colors.red,
               icon: Icon(Icons.favorite),
-              title: Text('Favorites')),
+              label: 'Favorites'
+    ),
         ],
       ),
     );
